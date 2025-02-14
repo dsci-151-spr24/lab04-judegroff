@@ -109,6 +109,8 @@ We would like to limit our analysis to Denny's and La Quinta locations in the Un
     Are there any La Quinta's locations outside of the US?
     If so, which countries?
     What about Denny's?
+    
+La Quinta hotels are mostly located in the Americas, but also have locations in other areas of the world. "Denny's" are located in the US.
 
 4.  Now take a look at the data.
     What would be some ways of determining whether or not either establishment has any locations outside the US using just the data (and not the websites).
@@ -128,6 +130,7 @@ We know exactly which states are in the US, and we have this information in the 
 dennys %>%
   filter(!(state %in% states$abbreviation))
 ```
+There are no "Denny's" outside the US in our data.
 
 6.  Add a country variable to the Denny's dataset and set all observations equal to `"United States"`. Remember, you can use the `mutate` function for adding a variable. Make sure to save the result of this as `dennys` again so that the stored data frame contains the new variable going forward.
 
@@ -136,26 +139,32 @@ We don't need to tell R how many times to repeat the character string "United St
 ```
 
 ```{r}
-dennys %>%
+dennys <- dennys %>%
   mutate(country = "United States")
 ```
 
 7.  Find the La Quinta locations that are outside the US, and figure out which country they are in.
     This might require some googling.
     Take notes, you will need to use this information in the next exercise.
-
+    
+```{r}
+laquinta %>%
+  filter(!(state %in% states$abbreviation))
+```
+    
 8.  Add a country variable to the La Quinta dataset.
     Use the `case_when` function to populate this variable.
     You'll need to refer to your notes from Exercise 7 about which country the non-US locations are in.
     Here is some starter code to get you going:
 
 ```{r eval = FALSE}
-laquinta %>%
+laquinta <- laquinta %>%
   mutate(country = case_when(
     state %in% state.abb     ~ "United States",
     state %in% c("ON", "BC") ~ "Canada",
     state == "ANT"           ~ "Colombia",
-    ...                      # fill in the rest
+    state %in% c("AG", "PU", "VE", "NL", "CH", "QR") ~ "Mexico",
+    state == "FM"            ~ "Honduras"
   ))
 ```
 
