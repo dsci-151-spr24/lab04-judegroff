@@ -99,7 +99,7 @@ There are `r nrow(dennys)` rows and `r ncol(dennys)` columns. Each row represent
     What does each row in the dataset represent?
     What are the variables?
     
-There are `r nrow(laquinta)` rows and `r ncol(laquinta)` columns. Each row represents the data for a single Denny's restaurant, and the variables are: `r names(laquinta)`.
+There are `r nrow(laquinta)` rows and `r ncol(laquinta)` columns. Each row represents the data for a single La Quintas Inn, and the variables are: `r names(laquinta)`.
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
